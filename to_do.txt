@@ -1,0 +1,8 @@
+SKIPPED - 0. ***LEAST PRIORITY*** Add makefile in proj2/ to -  do source varsetup etc in both folders, clean in both folders, one single make to make in both folders, one single make sim to sim in rocket_sim folder.
+DONE -    1. Figure out why mem is at 0x6XXXXXXX and LSTM is at 0x7XXXXXX addresses on the bus
+DONE -    2. make memory map for actual output write address, use 564 spec as reference for addresses. This will generate a lot of read requests from mem but not write since they are stored on local memory in cpu
+DONE -    3. Figure out how to get CPU to tell LSTM to do execution. Current plan to do a write to address 0xNXXXXXXX and execute in lstm if gp.get_command() is TLM_WRITE_COMMAND. This is connected to point 1.
+SKIPPED -    4. Add in static arrays for weights and inputs in memory. - using the "coef1->Wf[][]" format to load them into addresses as per the 564 spec. use mem-mapped variable to load either layer 1 or layer 2 
+DONE -    5. Verify that LSTM can talk to memory.
+DONE -    6. Add delays in memory (done using HW9 as reference), lstm unit  (528 cycles per coef file, 128 cycles for input), bus(done),  lstm unit (8418 cycles per 16 time steps)
+ 
